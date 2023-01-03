@@ -1,0 +1,22 @@
+<app-nav></app-nav>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nom d'asssociation </th>
+        <td mat-cell *matCellDef="let assos"> {{assos.name}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID d'association </th>
+      <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="users">
+      <th mat-header-cell *matHeaderCellDef> Listes de utilisateurs  </th>
+      <td mat-cell *matCellDef="let user"> {{user.lastname}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
