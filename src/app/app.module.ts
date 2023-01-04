@@ -19,7 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
     UsersListComponent,
     LoginComponent,
     NavComponent,
-    AssosListComponent
+    AssosListComponent,
     NavComponent,
     ProfileComponent
   ],
@@ -28,7 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
