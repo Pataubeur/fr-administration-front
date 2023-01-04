@@ -21,7 +21,7 @@ export class LoginComponent {
   login(): void {
     const username: string = (document.getElementById('username') as HTMLInputElement).value;
     const password: string = (document.getElementById('password') as HTMLInputElement).value;
-    this.api.post({endpoint: '/auth/login', data: { username, password }}).then(response => this.tokenStorageService.save(response.access_token)).catch(response => { 
+    this.api.post({endpoint: '/auth/login', data: { username, password }}).then(response => this.tokenStorageService.save(response.access_token, username)).catch(response => { 
       if(response.status==401) {
         this.notLogged = true;
       }

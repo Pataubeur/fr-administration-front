@@ -1,0 +1,40 @@
+<app-nav></app-nav>
+
+<div *ngIf="dataSource==null">
+    Error
+</div>
+
+<header *ngIf="dataSource!=null">
+    User {{dataSource.id}}
+</header>
+<body *ngIf="dataSource!=null">
+    <div class="informations">
+        <div>
+            Lastname : {{dataSource.lastname}}
+        </div>
+        <div>
+            Firstname : {{dataSource.firstname}}
+        </div>
+        <div>
+            Age : {{dataSource.age}}
+        </div>
+    </div>
+    <div class="changes">
+        <div>
+            <label for="lastname">Lastname</label>
+            <input type="text" id="lastname" placeholder="lastname" />
+            <a (click)="changeLastname()"><button>Change lastname</button></a>
+        </div>
+        <div>
+        <label for="firstname">Firstname</label>
+        <input type="text" id="firstname" placeholder="firstname" />
+        <a (click)="changeFirstname()"><button>Change firstname</button></a>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="password" />
+            <a (click)="changePassword()"><button>Change password</button></a>
+        </div>
+    </div>
+</body>
+

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../services/token-storage.service';
+import 'bootstrap';
 
 @Component({
   selector: 'app-nav',
@@ -19,6 +20,7 @@ export class NavComponent {
   logout(): void {
     console.log("click on logout !");
     this.service.clear();
+    this.isLogged = false;
     this.router.navigateByUrl("/login");
 
   }

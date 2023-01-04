@@ -10,11 +10,12 @@ export class TokenStorageService {
   public clear(): void {
     localStorage.clear();
   }
-  public save(token: string): void {
+  public save(token: string, username: string): void {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USERNAME_KEY );
     localStorage.removeItem(IS_LOGGED_IN);
     localStorage.setItem(TOKEN_KEY, token);
+    localStorage.setItem(USERNAME_KEY, username);
     localStorage.setItem(IS_LOGGED_IN, IS_LOGGED);
   }
   public getToken(): string {
@@ -23,5 +24,9 @@ export class TokenStorageService {
   }
   public isLogged(): boolean {
     return (Boolean)(localStorage.getItem(IS_LOGGED_IN));
+  }
+  public getName(): string {
+    const name = localStorage.getItem(USERNAME_KEY);
+    return name === null ? '' : name;
   }
 }
