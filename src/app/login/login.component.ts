@@ -16,7 +16,7 @@ export class LoginComponent {
     private router: Router,
   ) {}
     
-  notLogged : boolean = false
+  notLogged : boolean = false;
 
   login(): void {
     const username: string = (document.getElementById('username') as HTMLInputElement).value;
