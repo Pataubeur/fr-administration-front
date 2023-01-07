@@ -4,37 +4,75 @@
     Error
 </div>
 
-<header *ngIf="dataSource!=null">
-    User {{dataSource.id}}
-</header>
-<body *ngIf="dataSource!=null">
-    <div class="informations">
-        <div>
-            Lastname : {{dataSource.lastname}}
-        </div>
-        <div>
-            Firstname : {{dataSource.firstname}}
-        </div>
-        <div>
-            Age : {{dataSource.age}}
-        </div>
-    </div>
-    <div class="changes">
-        <div>
-            <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" placeholder="lastname" />
-            <a (click)="changeLastname()"><button>Change lastname</button></a>
-        </div>
-        <div>
-        <label for="firstname">Firstname</label>
-        <input type="text" id="firstname" placeholder="firstname" />
-        <a (click)="changeFirstname()"><button>Change firstname</button></a>
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="password" />
-            <a (click)="changePassword()"><button>Change password</button></a>
-        </div>
-    </div>
-</body>
 
+
+<body *ngIf="dataSource!=null">
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center ">
+
+                <div class="split left">
+                    <div class="centered">
+                        <div class="card bg-dark text-white" style="border-radius: 2rem;">
+                            <div class="card-body p-5 text-center">
+                                <img src="./../../assets/user_base.png" alt="Avatar" width="500"
+                                    style="margin-bottom: 30px;">
+                                <header class="fw-bold text-uppercase user_sample" *ngIf="dataSource!=null">
+                                    User ID : {{dataSource.id}}
+                                </header>
+
+                                <div>
+                                    <div class="fw-bold parameter_sample">
+                                        Lastname : {{dataSource.lastname}}
+                                    </div>
+
+                                    <div class="fw-bold parameter_sample">
+                                        Firstname : {{dataSource.firstname}}
+                                    </div>
+
+                                    <div class="fw-bold parameter_sample">
+                                        Age : {{dataSource.age}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="split right">
+                    <div class="centered">
+                        <div class="changes">
+                            <div class="container overflow-hidden">
+
+                                <div class="row">
+                                    <label class="fw-bold change_sample" for="lastname">Lastname</label>
+                                    <input class="form-control" type="text" id="lastname" placeholder="new lastname" />
+                                    <a (click)="changeLastname()"><button class="btn btn-primary button_custom">Change
+                                            lastname</button></a>
+                                </div>
+
+                                <div class="row">
+                                    <label class="fw-bold change_sample" for="firstname">Firstname</label>
+                                    <input class="form-control" type="text" id="firstname" placeholder="new firstname" />
+                                    <a (click)="changeFirstname()"><button class="btn btn-primary button_custom">Change
+                                            firstname</button></a>
+                                </div>
+
+                                <div class="row">
+                                    <label class="fw-bold change_sample" for="password">Password</label>
+                                    <input class="form-control" type="password" id="password"
+                                        placeholder="new password" />
+                                    <a (click)="changePassword()"><button class="btn btn-primary button_custom">Change
+                                            password</button></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
