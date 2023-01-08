@@ -13,7 +13,7 @@ export class AssosListComponent implements OnInit {
   constructor(
       private http: HttpClient
     ) {}
-  displayedColumns: string[] = ['id', 'users', 'name'];
+  displayedColumns: string[] = ['id', 'name'];
   dataSource = [];
 
   ngOnInit() : void {

@@ -18,7 +18,7 @@ export class NavComponent {
   isLogged : boolean = this.service.isLogged()
 
   logout(): void {
-    console.log("click on logout !");
+    //console.log("click on logout !");
     this.service.clear();
     this.isLogged = false;
     this.router.navigateByUrl("/login");
