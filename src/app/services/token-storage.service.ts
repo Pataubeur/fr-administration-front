@@ -4,6 +4,7 @@ const USERNAME_KEY = 'username';
 const IS_LOGGED_IN = 'isLoggedIn';
 const IS_LOGGED = 'true';
 const FORM_USER = '0';
+const FROM_ASSO = '0';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,6 +24,10 @@ export class TokenStorageService {
     localStorage.removeItem(FORM_USER);
     localStorage.setItem(FORM_USER, username);
   }
+  public saveClickedAssociation(username: string): void {
+    localStorage.removeItem(FROM_ASSO);
+    localStorage.setItem(FROM_ASSO, username);
+  }
   public getToken(): string {
     const token = localStorage.getItem(TOKEN_KEY);
     return token === null ? '' : token;
@@ -36,6 +41,10 @@ export class TokenStorageService {
   }
   public getClickedUser(): string {
     const name = localStorage.getItem(FORM_USER);
+    return name === null ? '' : name;
+  }
+  public getClickedAssociation(): string {
+    const name = localStorage.getItem(FROM_ASSO);
     return name === null ? '' : name;
   }
 }

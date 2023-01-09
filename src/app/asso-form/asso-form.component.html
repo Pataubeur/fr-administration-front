@@ -6,7 +6,7 @@
 
 
 
-<body *ngIf="dataSourceUser!=null">
+<body *ngIf="dataSourceAsso!=null">
     <section class="vh-100 gradient-custom">
         <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center ">
@@ -15,30 +15,21 @@
                     <div class="centered">
                         <div class="card bg-dark text-white" style="border-radius: 2rem;">
                             <div class="card-body p-5 text-center">
-                                style="margin-bottom: 30px;">
-
-
-                                <header class="fw-bold text-uppercase user_sample" *ngIf="dataSourceUser!=null">
-                                    User ID : {{dataSourceUser.id}}
+                                <img src="./../../assets/user_base.png" alt="Avatar" width="500"
+                                    style="margin-bottom: 30px;">
+                                <header class="fw-bold text-uppercase user_sample" *ngIf="dataSourceAsso!=null">
+                                    Association ID : {{dataSourceAsso.id}}
                                 </header>
 
                                 <div>
                                     <div class="fw-bold parameter_sample">
-                                        Lastname : {{dataSourceUser.lastname}}
+                                        Name : {{dataSourceAsso.name}}
                                     </div>
-
+                                    
                                     <div class="fw-bold parameter_sample">
-                                        Firstname : {{dataSourceUser.firstname}}
-                                    </div>
-
-                                    <div class="fw-bold parameter_sample">
-                                        Age : {{dataSourceUser.age}}
-                                    </div>
-
-                                    <div class="fw-bold parameter_sample">
-                                        Associations :
-                                        <div *ngFor="let item of userAssociations">
-                                            {{item}}
+                                        Members : 
+                                        <div *ngFor="let item of userInAssociation">
+                                            {{item.lastname}} {{item.firstname}}
                                         </div>
                                     </div>
                                 </div>

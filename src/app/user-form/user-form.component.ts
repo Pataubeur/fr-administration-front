@@ -33,7 +33,7 @@ export class UserFormComponent implements OnInit {
     lastValueFrom(resquestAssociation).then(response => {
       dataSourceAssociation = response.body;
       for(let i = 0 ; i < dataSourceAssociation.length ; i++) {
-        console.log(dataSourceAssociation[i].users[0].id);
+        //console.log(dataSourceAssociation[i].users[0].id);
         for(let j = 0 ; j < dataSourceAssociation[i].users.length ; j++) {
 
           if(dataSourceAssociation[i].users[j].id === +(this.username)) {

@@ -30,7 +30,7 @@ export class AssosListComponent implements OnInit {
 
   goToAssoForm(id: number) : void {
     //console.log("id" + id)
-    this.tokenStorageService.saveClickedUser(id.toString());
+    this.tokenStorageService.saveClickedAssociation(id.toString());
     this.router.navigateByUrl('/asso-form');
   }
 

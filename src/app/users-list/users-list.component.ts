@@ -27,8 +27,6 @@ export class UsersListComponent implements OnInit {
     const resquest: Observable<any> = this.http.get('http://localhost:3000/users', { observe: 'response' });
     lastValueFrom(resquest).then(response => {
       this.dataSource = response.body;
-      let nullValue! : never;
-      this.dataSource.push(nullValue);
     });
   }
 
