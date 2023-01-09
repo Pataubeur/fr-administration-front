@@ -20,13 +20,30 @@ export class UserFormComponent implements OnInit {
   ) {}
 
   username : string = this.tokenStorageService.getClickedUser();
-  dataSource: any = null;
+  dataSourceUser: any = null;
+  userAssociations: string[] = [];
 
   ngOnInit() : void {
-    const resquest: Observable<any> = this.http.get(('http://localhost:3000/users/').concat(this.username), { observe: 'response' });
-    lastValueFrom(resquest).then(response => {
-      this.dataSource = response.body;
-      console.log(this.dataSource);
+    const resquestUser: Observable<any> = this.http.get(('http://localhost:3000/users/').concat(this.username), { observe: 'response' });
+    lastValueFrom(resquestUser).then(response => {
+      this.dataSourceUser = response.body;
+    });
+    let dataSourceAssociation : any =  null;
+    const resquestAssociation: Observable<any> = this.http.get(('http://localhost:3000/associations/'), { observe: 'response' });
+    lastValueFrom(resquestAssociation).then(response => {
+      dataSourceAssociation = response.body;
+      for(let i = 0 ; i < dataSourceAssociation.length ; i++) {
+        console.log(dataSourceAssociation[i].users[0].id);
+        for(let j = 0 ; j < dataSourceAssociation[i].users.length ; j++) {
+
+          if(dataSourceAssociation[i].users[j].id === +(this.username)) {
+            this.userAssociations.push(dataSourceAssociation[i].name);
+          }
+
+        }
+      }
+      console.log(this.userAssociations);
+      
     });
   }
 

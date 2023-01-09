@@ -6,7 +6,7 @@
 
 
 
-<body *ngIf="dataSource!=null">
+<body *ngIf="dataSourceUser!=null">
     <section class="vh-100 gradient-custom">
         <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center ">
@@ -17,21 +17,28 @@
                             <div class="card-body p-5 text-center">
                                 <img src="./../../assets/user_base.png" alt="Avatar" width="500"
                                     style="margin-bottom: 30px;">
-                                <header class="fw-bold text-uppercase user_sample" *ngIf="dataSource!=null">
-                                    User ID : {{dataSource.id}}
+                                <header class="fw-bold text-uppercase user_sample" *ngIf="dataSourceUser!=null">
+                                    User ID : {{dataSourceUser.id}}
                                 </header>
 
                                 <div>
                                     <div class="fw-bold parameter_sample">
-                                        Lastname : {{dataSource.lastname}}
+                                        Lastname : {{dataSourceUser.lastname}}
                                     </div>
 
                                     <div class="fw-bold parameter_sample">
-                                        Firstname : {{dataSource.firstname}}
+                                        Firstname : {{dataSourceUser.firstname}}
                                     </div>
 
                                     <div class="fw-bold parameter_sample">
-                                        Age : {{dataSource.age}}
+                                        Age : {{dataSourceUser.age}}
+                                    </div>
+
+                                    <div class="fw-bold parameter_sample">
+                                        Associations : 
+                                        <div *ngFor="let item of userAssociations">
+                                            {{item}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
