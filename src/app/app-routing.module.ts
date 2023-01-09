@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { AssosListComponent } from './assos-list/assos-list.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 const routes: Routes = [
@@ -13,7 +15,8 @@ const routes: Routes = [
   { path: 'assos', component: AssosListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  {path: '', redirectTo:'users', pathMatch:'full'}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  {path: '', redirectTo:'home', pathMatch:'full'}
 ];
 
 @NgModule({
