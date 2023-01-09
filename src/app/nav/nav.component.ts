@@ -19,13 +19,33 @@ export class NavComponent {
     ){}
 
   isLogged : boolean = this.service.isLogged()
+  userOrAssociation : string = "user"
+  notExisting : boolean = false
 
   logout(): void {
     //console.log("click on logout !");
     this.service.clear();
     this.isLogged = false;
     this.router.navigateByUrl("/login");
+  }
 
+  searchUser() : void {
+    const search: string = (document.getElementById('search') as HTMLInputElement).value;
+    if(this.userOrAssociation === "user") {
+      this.service.saveClickedUser(search);
+      this.router.navigateByUrl('/user-form');
+    } else if (this.userOrAssociation === "association") {
+      this.service.saveClickedAssociation(search);
+      this.router.navigateByUrl('/asso-form')
+    }
+  }
+
+  changeToUser() : void {
+    this.userOrAssociation = "user";
+  }
+
+  changeToAssociation() : void {
+    this.userOrAssociation = "association";
   }
 
 

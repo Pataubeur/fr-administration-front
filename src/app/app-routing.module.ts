@@ -13,7 +13,7 @@ import { AssoFormComponent } from './asso-form/asso-form.component';
 
 const routes: Routes = [
   //{ path: 'users', component: UsersListComponent, canActivate: [AuthGuard] },
-  { path: 'users', component: UsersListComponent },
+  { path: 'users', component: UsersListComponent, canActivate: [AuthGuard] },
   { path: 'assos', component: AssosListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
