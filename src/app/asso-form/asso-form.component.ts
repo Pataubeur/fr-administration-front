@@ -9,7 +9,7 @@ import { ApiHelperService } from '../services/api-helper.service';
   templateUrl: './asso-form.component.html',
   styleUrls: ['./asso-form.component.css']
 })
-export class AssoFormComponent implements OnInit{
+export class AssoFormComponent{
 
   constructor(
     private api: ApiHelperService,
@@ -26,5 +26,16 @@ export class AssoFormComponent implements OnInit{
     lastValueFrom(resquest).then(response => {
       this.dataSource = response.body;
     });
+  }
+
+  giveMeUser() : void {
+    console.log(this.dataSource);
+    const resquest: Observable<any> = this.http.get(('http://localhost:3000/users/').concat(this.username), { observe: 'response' });
+    console.log(resquest);
+
+    lastValueFrom(resquest).then(response => {
+      this.dataSource = response.body;
+    });
+    
   }
 }
