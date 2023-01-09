@@ -1,37 +1,46 @@
 <app-nav></app-nav>
 
-<!--
-<div *ngIf="dataSource==null">
+<!--<div *ngIf="dataSource==null">
     Error
-</div>
--->
+</div>-->
 
 
-<body *ngIf="dataSource!=null">
+
+<body *ngIf="dataSourceUser!=null">
     <section class="vh-100 gradient-custom">
         <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center ">
 
-                <div class="centered">
-                    <div class="card bg-dark text-white" style="border-radius: 2rem;">
-                        <div class="card-body p-5 text-center">
-                            <img src="./../../assets/user_base.png" alt="Avatar" width="500" (click)="giveMeUser()"
+                <div class="split left">
+                    <div class="centered">
+                        <div class="card bg-dark text-white" style="border-radius: 2rem;">
+                            <div class="card-body p-5 text-center">
                                 style="margin-bottom: 30px;">
-                            <header class="fw-bold text-uppercase user_sample" *ngIf="dataSource!=null">
-                                User ID : {{dataSource.id}}
-                            </header>
 
-                            <div>
-                                <div class="fw-bold parameter_sample">
-                                    Lastname : {{dataSource.lastname}}
-                                </div>
 
-                                <div class="fw-bold parameter_sample">
-                                    Firstname : {{dataSource.firstname}}
-                                </div>
+                                <header class="fw-bold text-uppercase user_sample" *ngIf="dataSourceUser!=null">
+                                    User ID : {{dataSourceUser.id}}
+                                </header>
 
-                                <div class="fw-bold parameter_sample">
-                                    Age : {{dataSource.age}}
+                                <div>
+                                    <div class="fw-bold parameter_sample">
+                                        Lastname : {{dataSourceUser.lastname}}
+                                    </div>
+
+                                    <div class="fw-bold parameter_sample">
+                                        Firstname : {{dataSourceUser.firstname}}
+                                    </div>
+
+                                    <div class="fw-bold parameter_sample">
+                                        Age : {{dataSourceUser.age}}
+                                    </div>
+
+                                    <div class="fw-bold parameter_sample">
+                                        Associations :
+                                        <div *ngFor="let item of userAssociations">
+                                            {{item}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
