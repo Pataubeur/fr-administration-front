@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { AssosListComponent } from './assos-list/assos-list.component';
 import { HomeComponent } from './home/home.component';
+import { AssoFormComponent } from './asso-form/asso-form.component';
 
 
 
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'asso-form', component: AssoFormComponent, canActivate: [AuthGuard] },
+
   {path: '', redirectTo:'home', pathMatch:'full'}
 ];
 
