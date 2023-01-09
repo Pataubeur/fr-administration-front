@@ -60,3 +60,41 @@ test {
     text-shadow: -1px 0 black, 0 1px black,
         1px 0 black, 0 -1px black;
 }
+
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+    align-items: left;
+    position: absolute;
+    /*left: 180px;*/
+
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+    align-items: right;
+    position: absolute;
+    /*right: 20px;*/
+
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-top: 150px;
+}
