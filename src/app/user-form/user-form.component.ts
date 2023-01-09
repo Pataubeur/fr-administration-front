@@ -22,11 +22,18 @@ export class UserFormComponent implements OnInit {
   username : string = this.tokenStorageService.getClickedUser();
   dataSourceUser: any = null;
   userAssociations: string[] = [];
+  notExisting : boolean = false;
+
 
   ngOnInit() : void {
     const resquestUser: Observable<any> = this.http.get(('http://localhost:3000/users/').concat(this.username), { observe: 'response' });
     lastValueFrom(resquestUser).then(response => {
       this.dataSourceUser = response.body;
+    }).catch(response => {
+      if(response.status==404) {
+        this.notExisting = true
+        console.log(this.notExisting)
+      }
     });
     let dataSourceAssociation : any =  null;
     const resquestAssociation: Observable<any> = this.http.get(('http://localhost:3000/associations/'), { observe: 'response' });

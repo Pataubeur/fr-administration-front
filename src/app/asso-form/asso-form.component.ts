@@ -22,14 +22,19 @@ export class AssoFormComponent {
   username : string = this.tokenStorageService.getClickedAssociation();
   dataSourceAsso: any = null;
   userInAssociation : any = [];
+  notExisting : boolean = false
+
 
   ngOnInit() : void {
     const resquestAsso: Observable<any> = this.http.get(('http://localhost:3000/associations/').concat(this.username), { observe: 'response' });
     lastValueFrom(resquestAsso).then(response => {
       this.dataSourceAsso = response.body;
-      console.log(this.dataSourceAsso);
-      this.userInAssociation  = this.dataSourceAsso.users;
-      console.log(this.userInAssociation);
+      this.userInAssociation = this.dataSourceAsso.users;
+    }).catch(response => {
+      if(response.status==404) {
+        this.notExisting = true
+        console.log(this.notExisting)
+      }
     });
   }
 }
