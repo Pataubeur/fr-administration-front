@@ -25,7 +25,9 @@ import { HomeComponent } from './home/home.component';
     AssosListComponent,
     NavComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    UserFormComponent,
+    AssoFormComponent
   ],
   imports: [
     BrowserModule,
