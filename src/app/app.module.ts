@@ -27,7 +27,7 @@ import { HomeComponent } from './home/home.component';
     ProfileComponent,
     HomeComponent,
     UserFormComponent,
-    AssoFormComponent
+    AssoFormComponent,
   ],
   imports: [
     BrowserModule,
