@@ -14,6 +14,7 @@ import { AssosListComponent } from './assos-list/assos-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { AssoFormComponent } from './asso-form/asso-form.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,7 @@ import { AssoFormComponent } from './asso-form/asso-form.component';
     AssosListComponent,
     NavComponent,
     ProfileComponent,
-    UserFormComponent,
-    AssoFormComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
