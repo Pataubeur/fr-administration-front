@@ -12,6 +12,8 @@ import { TokenHttpInterceptor } from './interceptors/token.interceptor';
 import { NavComponent } from './nav/nav.component';
 import { AssosListComponent } from './assos-list/assos-list.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { AssoFormComponent } from './asso-form/asso-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ProfileComponent } from './profile/profile.component';
     NavComponent,
     AssosListComponent,
     NavComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserFormComponent,
+    AssoFormComponent
   ],
   imports: [
     BrowserModule,
