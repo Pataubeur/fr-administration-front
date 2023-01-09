@@ -25,7 +25,11 @@ export class UsersListComponent implements OnInit {
   
   ngOnInit(): void {
     const resquest: Observable<any> = this.http.get('http://localhost:3000/users', { observe: 'response' });
-    lastValueFrom(resquest).then(response => this.dataSource = response.body);
+    lastValueFrom(resquest).then(response => {
+      this.dataSource = response.body;
+      let nullValue! : never;
+      this.dataSource.push(nullValue);
+    });
   }
 
   goToUserForm(id: number) : void {
@@ -39,6 +43,14 @@ export class UsersListComponent implements OnInit {
     console.log("Trying to delete");
   }
   
+  create() : void {
+    const password: string = (document.getElementById('password') as HTMLInputElement).value;
+    const lastname: string = (document.getElementById('lastname') as HTMLInputElement).value;
+    const firstname: string = (document.getElementById('firstname') as HTMLInputElement).value;
+    const age: string = (document.getElementById('age') as HTMLInputElement).value;
+    this.api.post({endpoint: '/users', data: { lastname, firstname, age, password }}).then(() => window.location.reload());
+  }
+
   // getId(): number {
   //   console.log("getIdAfter" + this.clickedUser);
   //   return this.clickedUser;
