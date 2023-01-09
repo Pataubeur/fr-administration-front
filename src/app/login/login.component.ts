@@ -25,11 +25,13 @@ export class LoginComponent {
       if(response.status==401) {
         this.notLogged = true;
       }
+    }).then(() => {
+      if(this.tokenStorageService.isLogged()) {
+        this.router.navigateByUrl('/users');
+        this.notLogged = false;
+      }
     });
-    if(this.tokenStorageService.isLogged()) {
-      this.router.navigateByUrl('/users');
-      this.notLogged = false;
-    }
+    
   }
 
 }
