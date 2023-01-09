@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, lastValueFrom } from 'rxjs';
+import { ApiHelperService } from '../services/api-helper.service';
 import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
@@ -13,12 +14,13 @@ import { TokenStorageService } from '../services/token-storage.service';
 
 export class UsersListComponent implements OnInit {
   constructor(
+    private api: ApiHelperService,
     private http: HttpClient,
     private router: Router,
     private tokenStorageService: TokenStorageService
   ) { }
 
-  displayedColumns: string[] = ['icon', 'id', 'lastname', 'firstname', 'age'];
+  displayedColumns: string[] = ['icon', 'id', 'lastname', 'firstname', 'age', 'bin'];
   dataSource = [];
   
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class UsersListComponent implements OnInit {
     console.log("id" + id)
     this.tokenStorageService.saveClickedUser(id.toString());
     this.router.navigateByUrl('/user-form');
+  }
+
+  deleteUser(id: number) : void {
+    this.api.delete({endpoint:('/users/'.concat(id.toString()))}).then(() => window.location.reload());;
+    console.log("Trying to delete");
   }
   
   // getId(): number {

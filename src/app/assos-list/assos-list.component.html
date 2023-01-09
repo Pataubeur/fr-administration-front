@@ -20,6 +20,12 @@
         <th mat-header-cell *matHeaderCellDef class="fw-bold text-uppercase"> Association name </th>
         <td mat-cell *matCellDef="let association"> {{association.name}} </td>
       </ng-container>
+
+      <ng-container matColumnDef="bin">
+        <th mat-header-cell *matHeaderCellDef class="fw-bold text-uppercase"> Delete </th>
+        <td mat-cell *matCellDef="let association"> <img class="image" src="./../../assets/fichier-bin.png" alt="no picture" style="width: 40px;"
+          alt="logo" (click)="deleteAssociation(association.id)"></td>
+      </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

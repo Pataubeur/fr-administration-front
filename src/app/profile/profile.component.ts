@@ -29,17 +29,17 @@ export class ProfileComponent implements OnInit{
 
   changeLastname() : void {
     const lastname: string = (document.getElementById('lastname') as HTMLInputElement).value;
-    this.api.put({endpoint: ('/users/').concat(this.username), data: {lastname}}).then(response => window.location.reload());
+    this.api.put({endpoint: ('/users/').concat(this.username), data: {lastname}}).then(() => window.location.reload());
   }
 
   changeFirstname() : void {
     const firstname: string = (document.getElementById('firstname') as HTMLInputElement).value;
-    this.api.put({endpoint: ('/users/').concat(this.username), data: {firstname}}).then(response => window.location.reload());
+    this.api.put({endpoint: ('/users/').concat(this.username), data: {firstname}}).then(() => window.location.reload());
   }
 
   changePassword() : void {
     const password: string = (document.getElementById('password') as HTMLInputElement).value;
-    this.api.put({endpoint: ('/users/').concat(this.username), data: {password}}).then(response => window.location.reload());
+    this.api.put({endpoint: ('/users/').concat(this.username), data: {password}}).then(() => window.location.reload());
   }
 
 }
