@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+<app-nav style="z-index:100"></app-nav>
 
 <!--<div *ngIf="dataSource==null">
     Error
@@ -9,12 +9,14 @@
 <body *ngIf="dataSource!=null">
     <section class="vh-100 gradient-custom">
         <div class="container py-5">
-            <div class="row d-flex justify-content-center align-items-center ">
+            <div class="row d-flex justify-content-center align-items-center">
 
-                <div class="split left">
+                <section class="split left">
                     <div class="centered">
                         <div class="card bg-dark text-white" style="border-radius: 2rem;">
                             <div class="card-body p-5 text-center">
+
+
                                 <img src="./../../assets/user_base.png" alt="Avatar" width="500"
                                     style="margin-bottom: 30px;">
                                 <header class="fw-bold text-uppercase user_sample" *ngIf="dataSource!=null">
@@ -33,14 +35,14 @@
                                     <div class="fw-bold parameter_sample">
                                         Age : {{dataSource.age}}
                                     </div>
-                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
 
-                <div class="split right">
+                <section class="split right">
                     <div class="centered">
                         <div class="changes">
                             <div class="container overflow-hidden">
@@ -70,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
 
