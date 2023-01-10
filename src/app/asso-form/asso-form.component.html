@@ -4,10 +4,20 @@
     Error
 </div>-->
 
-<div class="notExisting" *ngIf="notExisting">No association with this ID !</div>
+
+<body> 
+    <div *ngIf="notExisting">
+        <section class="vh-100 gradient-custom">
+            <div class="container py-5">
+                <div class="row d-flex justify-content-center align-items-center ">
+                    <h1 class="fw-bold text-uppercase title_color" style="margin-top: 300px">No association with this ID !</h1>
+                </div>
+            </div>
+        </section>
+    </div>
 
 
-<body *ngIf="dataSourceAsso!=null">
+<div *ngIf="dataSourceAsso!=null">
     <section class="vh-100 gradient-custom">
         <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center ">
@@ -26,9 +36,9 @@
                                     <div class="fw-bold parameter_sample">
                                         Name : {{dataSourceAsso.name}}
                                     </div>
-                                    
+
                                     <div class="fw-bold parameter_sample">
-                                        Members : 
+                                        Members :
                                         <div *ngFor="let item of userInAssociation">
                                             {{item.lastname}} {{item.firstname}}
                                         </div>
@@ -41,5 +51,5 @@
             </div>
         </div>
     </section>
+</div>
 </body>
-
