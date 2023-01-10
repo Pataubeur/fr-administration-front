@@ -33,10 +33,18 @@ export class NavComponent {
     const search: string = (document.getElementById('search') as HTMLInputElement).value;
     if(this.userOrAssociation === "user") {
       this.service.saveClickedUser(search);
-      this.router.navigateByUrl('/user-form');
+      if(this.router.url == '/user-form') {
+        window.location.reload()
+      } else {
+        this.router.navigateByUrl('/user-form');
+      }
     } else if (this.userOrAssociation === "association") {
       this.service.saveClickedAssociation(search);
-      this.router.navigateByUrl('/asso-form')
+      if(this.router.url == '/asso-form') {
+        window.location.reload()
+      } else {
+        this.router.navigateByUrl('/asso-form')
+      }
     }
   }
 

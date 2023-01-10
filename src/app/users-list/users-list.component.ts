@@ -37,8 +37,12 @@ export class UsersListComponent implements OnInit {
   }
 
   deleteUser(id: number) : void {
-    this.api.delete({endpoint:('/users/'.concat(id.toString()))}).then(() => window.location.reload());;
+    this.api.delete({endpoint:('/users/'.concat(id.toString()))}).then(() => window.location.reload());
     console.log("Trying to delete");
+    if(id.toString() === this.tokenStorageService.getName()) {
+      this.tokenStorageService.clear();
+      this.router.navigateByUrl('/login');
+    }
   }
   
   create() : void {
@@ -55,5 +59,6 @@ export class UsersListComponent implements OnInit {
   // }
   
 }
+
 
 
