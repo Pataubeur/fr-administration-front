@@ -27,7 +27,7 @@ export class LoginComponent {
       }
     }).then(() => {
       if(this.tokenStorageService.isLogged()) {
-        this.router.navigateByUrl('/users');
+        this.router.navigateByUrl('/home');
         this.notLogged = false;
       }
     });
